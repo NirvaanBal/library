@@ -1,13 +1,157 @@
 @import url('https://fonts.googleapis.com/css2?family=Space+Mono');
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: inherit;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: inherit;
+}
+
+:root {
+  --primary-color: #d8e9a8;
+  --secondary-color: #1e5128;
+  --tertiary-color: #4e9f3d;
+  --dark-color: #191a19;
 }
 
 body {
-    font-family: 'Space Mono', monospace, sans-serif;
+  font-family: 'Space Mono', monospace, sans-serif;
+  background-color: var(--dark-color);
+  color: var(--primary-color);
 }
 
+.container {
+  width: 960px;
+  max-width: 90%;
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+
+.header {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.form .add-new-book {
+  display: block;
+  margin: 0 auto;
+  width: 310px;
+  padding: 10px 0;
+  font-weight: bold;
+  border: none;
+  outline: none;
+  border-radius: 3.5px;
+  background-color: var(--tertiary-color);
+  color: var(--dark-color);
+}
+
+.form .add-new-book:hover {
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+  cursor: pointer;
+}
+
+form {
+  grid-template-columns: repeat(5, 1fr);
+  align-items: center;
+  grid-gap: 15px;
+}
+
+form .form-control {
+  display: flex;
+  flex-direction: column;
+}
+
+form .form-control label {
+  margin-bottom: 3px;
+}
+
+.form-control input[type='text'],
+.form-control input[type='number'] {
+  outline: none;
+  border: none;
+  background: transparent;
+  color: var(--dark-color);
+  background-color: var(--primary-color);
+  border-radius: 3px;
+  padding: 7px 10px;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.form-control input[type='text']:focus,
+.form-control input[type='number']:focus {
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+}
+
+.form-control.radios div {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.form-control.radios div label {
+  margin-right: 4px;
+}
+
+.form-control.radios div label:nth-of-type(2) {
+  margin-left: 14px;
+}
+
+button[type='submit'] {
+  color: var(--dark-color);
+  font-weight: bold;
+  background-color: var(--tertiary-color);
+  outline: none;
+  border: none;
+  border-radius: 3px;
+  padding: 4px 10px;
+}
+
+button[type='submit']:hover,
+button[type='submit']:hover {
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+  cursor: pointer;
+  font-weight: normal;
+}
+
+.error {
+  text-align: center;
+  margin: 10px 0;
+}
+
+.books {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  grid-gap: 10px;
+}
+
+.book {
+  background-color: var(--primary-color);
+  color: var(--dark-color);
+  border-radius: 4px;
+  padding: 15px;
+}
+
+.remove,
+.status {
+  border: none;
+  outline: none;
+  padding: 3px 9px;
+  border-radius: 3px;
+  margin-top: 5px;
+  color: var(--primary-color);
+  cursor: pointer;
+}
+
+.remove {
+  background-color: var(--secondary-color);
+}
+
+.status {
+  background-color: var(--tertiary-color);
+  color: var(--dark-color);
+  font-weight: bold;
+}

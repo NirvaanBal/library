@@ -14,7 +14,7 @@ const addNewBookBtn = document.querySelector('.add-new-book');
 
 form.style.display = 'none';
 addNewBookBtn.addEventListener('click', () => {
-  form.style.display = 'block';
+  form.style.display = 'grid';
   addNewBookBtn.style.display = 'none';
   error.textContent = 'All fields are required';
 });
@@ -26,7 +26,7 @@ function addBooktoLibrary() {
   let read = document.querySelector('input[name="read"]:checked').value;
 
   if (!title || !author || !pages || !read) {
-    error.style.cssText = 'color: red; font-weight: bold';
+    error.style.cssText = 'color: crimson; font-weight: bold';
     return false;
   }
 
@@ -37,6 +37,9 @@ function addBooktoLibrary() {
   myLibrary.push(book);
 
   form.reset();
+  form.style.display = 'none';
+  addNewBookBtn.style.display = 'block';
+  error.textContent = '';
 
   return book;
 }
@@ -48,9 +51,9 @@ const showBooks = function () {
     book.id = index;
     bookHTML += `<div class="book" data-id="${index}">
             <h2 class="title">${book.title}</h2>
-            <h3 class="author">${book.author}</h3>
-            <div class="pages">${book.pages}</div>
-            <div class="read">${book.read ? 'Finished' : 'Not read yet'}</div>
+            <p class="author">Writer: ${book.author}</p>
+            <p class="pages">Pages: ${book.pages}</p>
+            <p class="read">${book.read ? 'Finished' : 'Not read yet'}</p>
             <button class="remove">Remove</button>
             <button class="status">${
               book.read ? 'Reading' : 'Finished'
@@ -67,8 +70,6 @@ const showBooks = function () {
 form.addEventListener('submit', (e) => {
   e.preventDefault();
   if (addBooktoLibrary() === false) return;
-
-  error.style.cssText = 'color: #000; font-weight: normal';
   showBooks();
 });
 
