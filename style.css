@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: inherit;
+}
+
+body {
+    font-family: 'Space Mono', monospace, sans-serif;
+}
+
