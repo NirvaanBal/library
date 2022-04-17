@@ -1,4 +1,19 @@
-let myLibrary = [];
+let myLibrary = [
+    // {
+    //     id: 1,
+    //     title: 'Rani Tatt',
+    //     author: 'Harman',
+    //     pages: 128,
+    //     read: true,
+    // },
+    // {
+    //     id: 2,
+    //     title: 'Maharani',
+    //     author: 'Deewan Jarmani Das',
+    //     pages: 200,
+    //     read: false,
+    // },
+];
 
 function Book(title, author, pages, read) {
     this.title = title;
@@ -17,11 +32,12 @@ const form = document.querySelector('form');
 const error = document.querySelector('.error');
 const books = document.querySelector('.books');
 const addNewBookBtn = document.querySelector('.add-new-book');
-form.style.display = 'none';
 
+form.style.display = 'none';
 addNewBookBtn.addEventListener('click', () => {
     form.style.display = 'block';
     addNewBookBtn.style.display = 'none';
+    error.textContent = 'All fields are required';
 });
 
 function addBooktoLibrary() {
@@ -47,20 +63,24 @@ function addBooktoLibrary() {
 }
 
 const showBooks = function () {
-    books.textContent = 'Adding...';
+    books.textContent = '';
     let bookHTML = ``;
-    myLibrary.forEach((book) => {
-        bookHTML += `<div class="book">
+    myLibrary.forEach((book, index) => {
+        book.id = index;
+        bookHTML += `<div class="book" data-id="${index}">
             <h2 class="title">${book.title}</h2>
             <h3 class="author">${book.author}</h3>
             <div class="pages">${book.pages}</div>
             <div class="read">${
                 book.read ? 'Finished reading' : 'Not read yet'
             }</div>
+            <button class="remove">Remove</button>
         </div>`;
     });
 
     books.insertAdjacentHTML('afterbegin', bookHTML);
+
+    removeBook();
 };
 
 form.addEventListener('submit', (e) => {
@@ -70,3 +90,17 @@ form.addEventListener('submit', (e) => {
     error.style.cssText = 'color: #000; font-weight: normal';
     showBooks();
 });
+
+const removeBook = () => {
+    const removeBookBtns = document.querySelectorAll('.remove');
+    removeBookBtns.forEach((btn) => {
+        btn.addEventListener('click', (e) => {
+            const bookToRemove = e.target.parentElement.dataset.id;
+            myLibrary = [
+                ...myLibrary.filter((book) => book.id !== +bookToRemove),
+            ];
+
+            showBooks();
+        });
+    });
+};
