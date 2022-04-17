@@ -16,6 +16,13 @@ function Book(title, author, pages, read) {
 const form = document.querySelector('form');
 const error = document.querySelector('.error');
 const books = document.querySelector('.books');
+const addNewBookBtn = document.querySelector('.add-new-book');
+form.style.display = 'none';
+
+addNewBookBtn.addEventListener('click', () => {
+    form.style.display = 'block';
+    addNewBookBtn.style.display = 'none';
+});
 
 function addBooktoLibrary() {
     const title = document.getElementById('title').value;
