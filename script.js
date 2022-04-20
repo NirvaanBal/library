@@ -16,7 +16,7 @@ const addNewBookBtn = document.querySelector('.add-new-book');
 
 form.style.display = 'none';
 addNewBookBtn.addEventListener('click', () => {
-  form.style.display = 'grid';
+  form.style.display = 'flex';
   addNewBookBtn.style.display = 'none';
   error.textContent = 'All fields are required';
 });
