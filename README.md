@@ -1,6 +1,6 @@
 # library
 
-A library built in JavaScript using new ES6 feature 'class' with CSS grid.
+A library built in JavaScript using new ES6 feature 'class' with CSS grid. [Live here](https://nirvaanbal.github.io/library/).
 
 ## Features
 
