@@ -9,6 +9,9 @@ A library built in JavaScript using new ES6 feature 'class' with CSS grid. [Live
 - Remove book on the fly 📕
 - Responsive design using flexbox and grid 🔢
 
+## Raison d'être
+To get hold of JavaScript constructor pattern
+
 ### Idea
 
 The idea of this app is solely inspired from The Odin Project's JavaScript course which includes a project with same name.
